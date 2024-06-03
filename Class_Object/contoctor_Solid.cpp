@@ -15,7 +15,7 @@ class Surface_Area
     Surface_Area(int Edge)
     {
         cout<<"Cube Surface Area"<<endl;
-        cout<<"Surface Area :-"<<6*Edge<<endl;
+        cout<<"Surface Area :-"<<6*(Edge*Edge)<<endl;
     }
     Surface_Area()
     {
