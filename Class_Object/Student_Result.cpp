@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
-class Student1{
-    private:
+class Student{
+    protected:
     int roll_no;
     string name;
     int sub[5];
@@ -9,8 +9,11 @@ class Student1{
     float par;
     float cal_par(int total);
     int cal_total();
+};
+class Result : protected Student{
     public:
-   Student1(){
+    Result()
+    {
         cout<<"Enter You Roll No:-";
         cin>>roll_no;
         cout<<"Enter You Name:-";
@@ -23,14 +26,23 @@ class Student1{
         total=cal_total();
         par=cal_par(total);
     }
-    friend void display(Student1 s);
+    ~Result(){
+        cout<<"Roll No:-"<<roll_no<<endl;
+        cout<<"Student Name:-"<<name<<endl;
+        for(int i=0; i<5 ; i++)
+        {
+        cout<<"Subject "<<i+1<<" Mark:-"<<sub[i]<<endl;
+        }
+        cout<<"Total Mark:-"<<total<<endl;
+        cout<<"Parchantage:-"<<par<<endl;
+    }
 
 };
-float Student1::cal_par(int total)
+float Student::cal_par(int total)
 {  
-    return total / 5.0 ;
+    return float(total)/ 5.0 ;
 }
-int Student1::cal_total()
+int Student::cal_total()
 {   int t=0;
     for(int i=0; i<5; i++)
     {
@@ -38,22 +50,7 @@ int Student1::cal_total()
     }
     return t;
 }
-void display(Student1 s)
-{
- 
-    cout<<s.roll_no<<endl;
-    cout<<s.name<<endl;
-    for(int i=0; i<5 ; i++)
-    {
-    cout<<s.sub[i]<<endl;
-    }
-    cout<<s.total<<endl;
-    cout<<s.par<<endl;
-}
-
 int main()
-{   Student1 s;
-    
-    display(s);   
+{   Result r;
     return 0;
 }
