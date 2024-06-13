@@ -11,6 +11,27 @@ class cal
         l.b=b+x.b;
         return l;
     }
+    cal operator*(cal &x)
+    {
+        cal l;
+        l.a=a*x.a;
+        l.b=b*x.b;
+        return l;
+    }
+    cal operator/(cal &x)
+    {
+        cal l;
+        l.a=a/x.a;
+        l.b=b/x.b;
+        return l;
+    }
+    cal operator-(cal &x)
+    {
+        cal l;
+        l.a=a-x.a;
+        l.b=b-x.b;
+        return l;
+    }
     cal operator++()
     {
         cal l;
@@ -23,6 +44,20 @@ class cal
         cal l;
         l.a=a++;
         l.b=b++;
+        return l;
+    }
+    cal operator--()
+    {
+        cal l;
+        l.a=--a;
+        l.b=--b;
+        return l;
+    }
+    cal operator--(int)
+    {
+        cal l;
+        l.a=a--;
+        l.b=b--;
         return l;
     }
 

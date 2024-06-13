@@ -10,7 +10,7 @@ class Student{
     float cal_par(int total);
     int cal_total();
 };
-class Result : protected Student{
+class Result : private Student{
     public:
     Result()
     {
@@ -35,6 +35,8 @@ class Result : protected Student{
         }
         cout<<"Total Mark:-"<<total<<endl;
         cout<<"Parchantage:-"<<par<<endl;
+ 
+ 
     }
 
 };
@@ -50,7 +52,10 @@ int Student::cal_total()
     }
     return t;
 }
+
+
 int main()
-{   Result r;
+{  
+    Result r;
     return 0;
 }
