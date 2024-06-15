@@ -18,7 +18,7 @@ public:
 void find(large l) 
 {
    
-   if (l.a > l.b)
+   if (l.a > l.b && l.a > l.c)
     {
         cout << "A is larg";
     }

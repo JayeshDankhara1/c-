@@ -56,6 +56,6 @@ int Student::cal_total()
 
 int main()
 {  
-    Result r;
+    Result r[2];
     return 0;
 }
