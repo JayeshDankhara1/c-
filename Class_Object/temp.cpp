@@ -10,5 +10,5 @@ void dis(A t1, B t2)
 
 int main()
 {
-    dis('A',200);
+    dis(10,200.1   );
 }
