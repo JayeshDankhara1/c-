@@ -149,6 +149,58 @@ void Queue_Delete(int &f , int &l)
         cout<<"Delete Sucsses Full"<<endl;
     }
 }
+void Queue_Add_Circular(int* num,int &f,int &r,int value)
+{
+    if(f==0 && r==0)
+    {
+        num[f]=value;
+        r=(r+1)%10;
+        cout<<"Eliment Add Sucssess11111111."<<endl;
+
+    }
+    else if((r+1)%10==f){
+        cout<<"Circular Queue As Full"<<endl;
+    }else
+    {
+        num[r]=value;
+        r=(r+1)%10;
+        cout<<"Eliment Add Sucssess."<<endl;
+    }
+}
+void Queue_Delete_Circular(int &f,int &r)
+{
+    if(f==r)
+    {
+        cout<<"Queue Is Empty"<<endl;
+    }
+    else{
+        f=(f+1)%10;
+        cout<<"Queue Is Delete"<<endl;
+    }
+}
+void Queue_Dispaly_Circular(int num[],int f,int r)
+{
+    cout<<"Display:-";
+    if(f<r)
+    {
+        for(int i=f;i<r;i++)
+        {
+            cout<<num[i]<<" ";
+        }
+    }else
+    {  
+        for(int i=f;i<=9;i++)
+        {
+            cout<<num[i]<<" ";
+        }
+        for(int i=0;i<r;i++)
+        {
+            cout<<num[i]<<" ";
+        }
+
+    }
+    cout<<endl;
+}
 int main()
 {
   // int num[10]={11,13,15,17,19,22,25,28};
@@ -165,9 +217,12 @@ int main()
     cout<<"7. Binery Sarch"<<endl;
     cout<<"8. Bubble Sorting"<<endl;
     cout<<"9. Selection Sorting"<<endl;
-    cout<<"10. Add(Queue)"<<endl;
-    cout<<"11. Delete(Queue)"<<endl;
-    cout<<"12. Dispaly(Queue)"<<endl;
+    cout<<"10. Add(Queue Simple)"<<endl;
+    cout<<"11. Delete(Queue Simple)"<<endl;
+    cout<<"12. Dispaly(Queue Simple)"<<endl;
+    cout<<"13. Add(Queue Circular)"<<endl;
+    cout<<"14. Delete(Queue Circular)"<<endl;
+    cout<<"15. Dispaly(Queue Circular)"<<endl;
 
 
     cout<<"Enter you choice:-"<<endl;
@@ -222,6 +277,17 @@ int main()
         goto one;
     case 12 :
         Queue_Dispaly(num,Fast,Last);
+        goto one;
+    case 13 :
+        cout<<"Enter You Eliment:-";
+        cin>>el;
+        Queue_Add_Circular(num,Fast,Last,el);
+        goto one;
+    case 14 :
+        Queue_Delete_Circular(Fast,Last);
+        goto one;
+    case 15 :
+        Queue_Dispaly_Circular(num,Fast,Last);
         goto one;
     default:
         goto one;
