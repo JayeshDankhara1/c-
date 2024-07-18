@@ -11,10 +11,12 @@ struct node *head = NULL;
 void Display() {
 
    struct node *ptr = head;
+   if(head!=NULL){
+    cout<<ptr->data<<" ";
    while(ptr ->next != head) {        
-      cout<<ptr->data<<" ";
       ptr = ptr->next;
-   }
+      cout<<ptr->data<<" ";
+   }}
 }
 
 void Push_Back(int data) {
@@ -57,12 +59,16 @@ void Push_Fast(int data)
 {
     struct node *link = (struct node*) malloc(sizeof(struct node));
     struct node *ptr = head;
-
+    if(head==NULL)
+    {   link->data=data; 
+        head = link;
+        link->next = head;
+        return;
+    }
     while(ptr->next != head)
     {
         ptr=ptr->next;
     }
-
     link->data = data;
     link->next=head;
     head=link;
@@ -72,7 +78,7 @@ void Pop_Fast()
 {
     struct node *ptr = head;
     struct node *ptr1 = head;
-
+    
     while(ptr1->next != head)
     {
         ptr1=ptr1->next;
@@ -125,7 +131,7 @@ void Pop(int num)
 
 int main()
 {
-   // Push_Back(60);
+    //Push_Back(60);
  //   Display();
    // Pop_Back();
    // Push_Fast(100);
@@ -137,15 +143,22 @@ int main()
    // Push(10,100);
      // Pop_Back();
     //Pop_Fast();
-    Push_Back(10);
-    Push_Back(20);
-    Push_Back(30);
-    Push_Back(40);
+    // Push_Back(10);
+    // Push_Back(20);
+    // Push_Back(30);
+    // Push_Back(40);
     Push_Fast(50);
-    Push_Fast(100);
+   // Display();
+    // Push_Fast(100);
+    // Push_Fast(10);
+    // Push_Fast(1000);
+    
    // Push(1,30);
    //Pop(30);
     // Pop_Back();
+   
+   
+   
     // Pop_Back();
     // Pop_Fast();
     // Pop_Fast();
