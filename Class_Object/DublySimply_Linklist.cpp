@@ -94,15 +94,37 @@ void Pop_Back(){
         return;
     }
     while (copyHead->Next != NULL)
-    {   //copy1Head=copyHead;
+    {   copy1Head=copyHead;
         copyHead=copyHead->Next;
     }
-  // copyHead=copyHead->Pev;
-     copyHead=copyHead->Pev;
-     copyHead->Next=NULL;
+   copy1Head->Next=NULL;
 
 }
-void Pop(int Data, int Eliment);
+void Pop(int Eliment)
+{
+    struct Node *copyHead=Head;
+    struct Node *copy1Head=Head;
+    if(Head->data==Eliment)
+    {
+        Head=copyHead->Next;
+        Head->Pev=NULL;
+        return;
+    }
+    while(copyHead->data != Eliment)
+    {
+        copy1Head=copyHead;
+        copyHead=copyHead->Next;
+    }
+    if(copyHead->Next==NULL)
+    {
+    copy1Head->Next=copyHead->Next;
+    copyHead->Pev=copy1Head->Pev;
+    copyHead->Next=NULL;
+        return;
+    }
+    copy1Head->Next=copyHead->Next;
+    copyHead->Pev=copy1Head->Pev;
+}
 int main()
 {
     // Push_Fast(10);
@@ -118,6 +140,11 @@ int main()
     // Pop_Fast();
     // Pop_Fast();
     // Pop_Fast();
-    Pop_Back();
+    // Pop_Back();
+    // Pop_Back();
+    // Pop_Back();
+ //  Pop(10);
+   Pop(50);   
+
     Display();
 }
